@@ -27,3 +27,5 @@ const genererord = async () => {
     riktigord = json[0].toUpperCase();
     console.log("Ordet å gjette er", riktigord)
 }
+
+const startSpill = async ()
