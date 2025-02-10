@@ -13,3 +13,5 @@ const getWord = async ()=> {
 }
 
 getWord()
+
+let ord 
