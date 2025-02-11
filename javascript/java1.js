@@ -25,7 +25,7 @@ const genererord = async () => {
     let data = await fetch ('https://random-word-api.herokuapp.com/word?length=5')
     let json = await data.json()
     riktigord = json[0].toUpperCase();
-    console.log("Ordet å gjette er", riktigord)
+    console.log("Ordet å gjette er", riktigord) //bare for test, skal fjernes når spillet er ferdig
 }
 
 const startSpill = async () => {
@@ -38,5 +38,5 @@ const startSpill = async () => {
 
 const gjettOrd = () => {
     const gjett = document.getElementById('brukerInnput').value.toUpperCase()
-    
+
 }
