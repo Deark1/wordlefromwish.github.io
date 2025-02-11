@@ -14,7 +14,7 @@ const getWord = async ()=> {
 
 getWord()
 
-
+//under her begynner koden
 
 let riktigord = ''
 let antallforsok = 0;
