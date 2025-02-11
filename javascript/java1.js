@@ -37,5 +37,6 @@ const startSpill = async () => {
 }
 
 const gjettOrd = () => {
-    const guess = document.getElementById()
+    const gjett = document.getElementById('brukerInnput').value.toUpperCase()
+    
 }
