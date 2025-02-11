@@ -28,4 +28,7 @@ const genererord = async () => {
     console.log("Ordet å gjette er", riktigord)
 }
 
-const startSpill = async ()
+const startSpill = async () => {
+    genererord()
+    
+}
