@@ -30,5 +30,6 @@ const genererord = async () => {
 
 const startSpill = async () => {
     genererord()
+    antallforsok++
     
 }
