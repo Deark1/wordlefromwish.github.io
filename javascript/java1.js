@@ -20,11 +20,23 @@ let riktigord = ''
 let antallforsok = 0;
 const maxforsok = 6
 
-    for (let i = 0; i < 30; i++) {
-        let item = document.createElement('div');
-        item.className = 'grid-item';
-        grid.appendChild(item);
-    }
+
+for (let i = 0;i<30; i++){
+    let item = document.createElement('div')
+    item.className = 'grid-item'
+    item.setAttribute('data-index', i)
+    grid.appendChild(item)
+
+}
+
+document.addEventListener('keydown', (e) => {
+    let key = e.key.toUpperCase()
+    let ruter = document.querySelectorAll('grid-item')
+
+})
+
+
+
 
 const genererord = async () => {
     let data = await fetch ('https://random-word-api.herokuapp.com/word?length=5')
