@@ -48,6 +48,11 @@ const skjekkOrd = (gjett) =>{
     let resultat = []
     let ordArray = riktigord.split('')
 
+    for (let i = 0; i < 5; i++){
+        if (gjett[i] === riktigord[i]){
+            resultat.push('riktig')
+        }
+    }
 }
 const gjettOrd = () => {
     const gjett = document.getElementById('brukerInnput').value.toUpperCase()
