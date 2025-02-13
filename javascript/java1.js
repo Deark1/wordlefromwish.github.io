@@ -31,13 +31,13 @@ const genererord = async () => {
 const startSpill = async () => {
     genererord()
     antallforsok++
-    document.getElementById('melding').innerText
-    document.getElementById('brukerInnput').value
-    document.getElementById('spillbrett').innerHTML =''
+    document.getElementById('').innerText
+    document.getElementById('').value
+    document.getElementById('').innerHTML =''
 }
 
 const gjettOrd = () => {
     const gjett = document.getElementById('brukerInnput').value.toUpperCase()
     
-
+    
 }
