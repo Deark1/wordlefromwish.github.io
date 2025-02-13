@@ -14,14 +14,10 @@
         <h1 id="wish">Wordle from wish</h1>
     </header>
 
-    <main contenteditable="true">
+    <main>
         <div id="grid"></div>
-        <input type="text" id="brukerInnput" maxlength="5" placeholder="Skriv inn et ord">
-        <button onclick="gjettOrd()">Gjett</button>
         <p id="melding"></p>
+        <button id="playAgain" onclick="startSpill()">Start på nytt</button>
     </main>
-    <footer>
-        <button id="playAgain" onclick="location.reload();">Play again</button>
-    </footer>
 </body>
 </html>
