@@ -34,13 +34,21 @@ const genererord = async () => {
 }
 
 const startSpill = async () => {
-    genererord()
-    antallforsok++
-    document.getElementById('').innerText
-    document.getElementById('').value
-    document.getElementById('').innerHTML =''
+    await genererord()
+    antallforsok = 0;
+    document.getElementById('melding').innerText
+    document.getElementById('brukerInnput').value
+    document.querySelectorAll('.grid-item').forEach(item => {
+        item.innerText=''
+        item.className='grid-item'
+    })
 }
 
+const skjekkOrd = (gjett) =>{
+    let resultat = []
+    let ordArray = riktigord.split('')
+
+}
 const gjettOrd = () => {
     const gjett = document.getElementById('brukerInnput').value.toUpperCase()
     
