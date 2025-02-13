@@ -51,6 +51,7 @@ const skjekkOrd = (gjett) =>{
     for (let i = 0; i < 5; i++){
         if (gjett[i] === riktigord[i]){
             resultat.push('riktig')
+            ordArray[i]=null
         }
     }
 }
