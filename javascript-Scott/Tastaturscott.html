@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Keyboard</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="textContainer" contenteditable="">
+
+    </div>
+    <div class="Keyboard">
+        <div class="row">
+            <div class="Key">1</div>
+            <div class="Key">2</div>
+            <div class="Key">3</div>
+            <div class="Key">4</div>
+            <div class="Key">5</div>
+            <div class="Key">6</div>
+            <div class="Key">7</div>
+            <div class="Key">8</div>
+            <div class="Key">9</div>
+            <div class="Key">0</div>
+            <div class="Key"><i class="fa-solid fa-delete-left"></i></div>
+        </div>
+        <div class="row">
+            <div class="Key">q</div>
+            <div class="Key">w</div>
+            <div class="Key">e</div>
+            <div class="Key">r</div>
+            <div class="Key">t</div>
+            <div class="Key">y</div>
+            <div class="Key">u</div>
+            <div class="Key">i</div>
+            <div class="Key">o</div>
+            <div class="Key">p</div>
+        </div>
+        <div class="row">
+            <div class="key" capslock>Caps Lock</div>
+            <div class="key">a</div>
+            <div class="key">s</div>
+            <div class="key">d</div>
+            <div class="key">f</div>
+            <div class="key">g</div>
+            <div class="key">h</div>
+            <div class="key">j</div>
+            <div class="key">k</div>
+            <div class="key">l</div>
+            <div class="key">Enter</div>
+        </div>
+        <div class="row SecondLast">
+            <div class="key">z</div>
+            <div class="key">x</div>
+            <div class="key">c</div>
+            <div class="key">v</div>
+            <div class="key">b</div>
+            <div class="key">n</div>
+            <div class="key">m</div>
+        </div>
+        <div class="space-row">
+            <div class="key space"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100vh;
+        background: whitesmoke;
+        font-size: 1.5rem;
+
+
+    }
+
+    .textContainer{
+        width: 90vw;
+        height: 15vh;
+        background: white;
+        box-shadow: 0 0 20px grey;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        font-family: sans-serif;
+        outline: none;
+
+    }
+
+    .Keyboard{
+        height: 50vh;
+        width: 70vw;
+        background: darkgray;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+    }
+
+    .row{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .space{
+        width: 50%;
+        height: 2rem;
+        background: grey;
+    }
+
+    .Secondlast{
+        width: 60%;
+        margin: 0 auto;
+    }
+    .Key:active{
+        background: white;
+
+    }
+    .key{
+        padding: 0.5rem;
+        border-radius: 2px;
+    }
+
+    .space-row{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
