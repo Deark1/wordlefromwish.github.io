@@ -1,6 +1,6 @@
 
     body {
-        display: flex;
+        display: block;
         align-items: center;
         justify-content: center;
         height: 100vh;
@@ -12,9 +12,13 @@
         grid-template-columns: repeat(5, 100px);
         grid-template-rows: repeat(6, 100px);
         gap: 10px;
+        justify-content: center;
+        align-items: center;
     }
 
     .grid-item {
+        justify-content: center;
+        align-items: center;
         width: 100px;
         height: 100px;
         background-color: #ccc;
@@ -27,3 +31,11 @@
     #wish{
         text-align: center;
     }
+    footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+    }
+
+    
