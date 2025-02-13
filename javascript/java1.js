@@ -15,11 +15,16 @@ const getWord = async ()=> {
 getWord()
 
 //under her begynner koden
-
+let grid = document.getElementById('grid')
 let riktigord = ''
 let antallforsok = 0;
 const maxforsok = 6
 
+    for (let i = 0; i < 30; i++) {
+        let item = document.createElement('div');
+        item.className = 'grid-item';
+        grid.appendChild(item);
+    }
 
 const genererord = async () => {
     let data = await fetch ('https://random-word-api.herokuapp.com/word?length=5')
