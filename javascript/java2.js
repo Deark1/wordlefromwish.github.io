@@ -6,4 +6,4 @@ let grid = document.getElementById('grid');
         grid.appendChild(item);
     }
 
-let refreshPage = document.getElementById('playAgain');
+
