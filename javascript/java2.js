@@ -5,3 +5,5 @@ let grid = document.getElementById('grid');
         item.className = 'grid-item';
         grid.appendChild(item);
     }
+
+let refreshPage = document.getElementById('playAgain');
