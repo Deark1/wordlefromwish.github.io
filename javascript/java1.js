@@ -23,13 +23,35 @@ let aktivrute = 0 //holder styr på hvilken rute som er aktiv
 
 
 for (let i = 0;i<30; i++){
-    let item = document.createElement('div')
+    let item = document.createElement('input')
     item.className = 'grid-item'
+    item.setAttribute('max-length', '1')
     item.setAttribute('data-index', i)
-    item.addEventListener('click', () => lagAktivRute(i)) //tryk på rute for å gjøre den aktiv
+    item.addEventListener('input', (e) => flyttTilNeste (e, index))
+    item.addEventListener('keydown', (e) => slettTilForrige (e, i))
     grid.appendChild(item)
 
 }
+
+const flyttTilNeste = (e, index) => {
+    let verdi = e.target.value.toUpperCase();
+    e.target.value = verdi;
+
+    if (verdi.match(/[A-Z]/) && index % 5 !== 4) {
+        document.querySelector(`[data-index'${index + 1}']`).focus()
+    }
+
+    if (index % 5 === 4){
+        sjekkRad(index)
+    }
+}
+
+const slettTilForrige = (e, index) => {
+    if (e.key === "Backspace" && !e.target.value && index % 5 !== 0) {
+        document.querySelector(`[data-index='${index - 1}']`).focus();
+    }
+};
+
 
 const genererord = async () => {
     let data = await fetch ('https://random-word-api.herokuapp.com/word?length=5')
@@ -65,6 +87,41 @@ const skjekkOrd = (gjett) =>{
         }
 
     }
+
+
+    const sjekkRad = (index) => {
+        let start = index - 4;
+        let gjett = "";
+    
+        for (let i = start; i <= index; i++) {
+            gjett += document.querySelector(`[data-index='${i}']`).value.toUpperCase();
+        }
+    
+        if (gjett.length !== 5) return;
+    
+        let resultat = skjekkOrd(gjett);
+    
+        for (let i = 0; i < 5; i++) {
+            let rute = document.querySelector(`[data-index='${start + i}']`);
+    
+            if (resultat[i] === 'riktig') {
+                rute.style.backgroundColor = 'green';
+            } else if (resultat[i] === 'feilplassert') {
+                rute.style.backgroundColor = 'yellow';
+            } else {
+                rute.style.backgroundColor = 'gray';
+            }
+        }
+    
+        antallforsok++;
+    
+        if (gjett === riktigord) {
+            document.getElementById('melding').innerText = "Gratulerer! Du vant!";
+        } else if (antallforsok >= maxforsok) {
+            document.getElementById('melding').innerText = `Du tapte! Ordet var ${riktigord}`;
+        }
+    };
+    
 }
 const gjettOrd = () => {
     const gjett = document.getElementById('brukerInnput').value.toUpperCase()
