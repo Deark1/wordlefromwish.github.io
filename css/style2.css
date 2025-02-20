@@ -1,41 +1,52 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
 
-    body {
-        display: block;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-    }
+#grid {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    grid-template-rows: repeat(6, 60px);
+    gap: 5px;
+    margin-bottom: 20px;
+}
 
-    #grid {
-        display: grid;
-        grid-template-columns: repeat(5, 100px);
-        grid-template-rows: repeat(6, 100px);
-        gap: 10px;
-        justify-content: center;
-        align-items: center;
-    }
+.grid-item {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 24px;
+    text-transform: uppercase;
+    border: 2px solid #000;
+}
 
-    .grid-item {
-        justify-content: center;
-        align-items: center;
-        width: 100px;
-        height: 100px;
-        background-color: #ccc;
-        border: 1px solid #000;
-    }
+.riktig {
+    background-color: green;
+    color: white;
+}
 
-    .grid-item:hover {
-        background-color: #bbb;
-    }
-    #wish{
-        text-align: center;
-    }
-    footer{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 10vh;
-    }
+.feilplassert {
+    background-color: yellow;
+    color: black;
+}
 
-    
+.feil {
+    background-color: gray;
+    color: white;
+}
+
+#melding {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#playAgain {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
