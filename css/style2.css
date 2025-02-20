@@ -23,21 +23,7 @@ body {
     font-size: 24px;
     text-transform: uppercase;
     border: 2px solid #000;
-}
-
-.riktig {
-    background-color: green;
-    color: white;
-}
-
-.feilplassert {
-    background-color: yellow;
-    color: black;
-}
-
-.feil {
-    background-color: gray;
-    color: white;
+    background-color: white; /* Hvit bakgrunn som default */
 }
 
 #melding {
