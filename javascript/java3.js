@@ -2,6 +2,13 @@ let riktigOrd = "";
 let gjeldendeRad = 0;
 let gjeldendeKol = 0;
 let grid = document.getElementById("grid");
+let gyldigeOrd = new Set();
+
+async function hentOrdListe() {
+    let data = await fetch('https://random-word-api.herokuapp.com/word?number=8885&length=5');
+    let json = await data.json();
+    gyldigeOrd = new Set(json.map(word => word.toUpperCase()));
+}
 
 async function hentOrd() {
     let data = await fetch('https://random-word-api.herokuapp.com/word?length=5');
@@ -39,7 +46,15 @@ function sjekkOrd() {
     for (let i = 0; i < 5; i++) {
         gjett += ruter[gjeldendeRad * 5 + i].innerText;
     }
-    
+
+    // Fjerner melding hvis spiller går videre til neste ord
+    document.getElementById("melding").innerText = "";
+
+    if (!gyldigeOrd.has(gjett)) {
+        document.getElementById("melding").innerText = "Ikke et gyldig ord, prøv igjen!";
+        return;
+    }
+
     if (gjett === riktigOrd) {
         document.getElementById("melding").innerText = "Gratulerer! Du vant!";
         for (let i = 0; i < 5; i++) {
@@ -64,7 +79,6 @@ function sjekkOrd() {
     if (gjeldendeRad === 6) {
         document.getElementById("melding").innerText = "Du tapte! Ordet var " + riktigOrd;
     }
-    
 }
 
 async function startSpill() {
@@ -75,8 +89,8 @@ async function startSpill() {
     });
     gjeldendeRad = 0;
     gjeldendeKol = 0;
+    await hentOrdListe();
     await hentOrd();
 }
-
 
 startSpill();
