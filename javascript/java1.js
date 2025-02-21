@@ -1,6 +1,8 @@
 let grid = document.getElementById('grid');
 let riktigord = "";
 let antallforsok = 0;
+let gyldigeOrd = new Set();
+let ordListeLastet = false;
 const maxforsok = 6;
 
 // Generer rutenett
@@ -22,8 +24,27 @@ const genererord = async () => {
     console.log("Ordet å gjette er:", riktigord); // Debugging
 };
 
+// Hent ordliste
+const hentOrdListe = async () => {
+    try {
+        let data = await fetch('https://random-word-api.herokuapp.com/word?number=8885&length=5');
+        let json = await data.json();
+        gyldigeOrd = new Set(json.map(word => word.toUpperCase()));
+        ordListeLastet = true;
+        console.log("✅ Ordlisten er lastet inn! Antall ord:", gyldigeOrd.size);
+    } catch (error) {
+        console.error("❌ Feil ved henting av ordliste:", error);
+    }
+};
+
 // Start nytt spill
 const startSpill = async () => {
+    if (!ordListeLastet) {
+        // Hvis ordlisten ikke er lastet, vent på at den skal lastes først
+        setTimeout(startSpill, 100);
+        return;
+    }
+    
     await genererord();
     antallforsok = 0;
     document.getElementById('melding').innerText = 'Skriv inn ditt ord';
@@ -85,7 +106,7 @@ const sjekkOrd = (gjett) => {
 
 // Sjekk raden når et ord er fylt ut
 const sjekkRad = (index) => {
-    let start = index - 4; // Startposisjon for raden
+    let start = index - 4;
     let gjett = "";
 
     for (let i = start; i <= index; i++) {
@@ -93,8 +114,14 @@ const sjekkRad = (index) => {
     }
 
     if (gjett.length !== 5) return;
+    
+    // Sjekk om ordet er gyldig
+    if (!gyldigeOrd.has(gjett)) {
+        document.getElementById('melding').innerText = "⚠️ Ikke et gyldig ord!";
+        return; // Stopper videre sjekk
+    }
 
-    let resultat = sjekkOrd(gjett); // Finner riktige og feilplasserte bokstaver
+    let resultat = sjekkOrd(gjett); // Fortsetter sjekken hvis ordet er gyldig
 
     for (let i = 0; i < 5; i++) {
         let rute = document.querySelector(`[data-index='${start + i}']`);
@@ -127,4 +154,7 @@ const sjekkRad = (index) => {
     }
 };
 
-startSpill();
+window.onload = async () => {
+    await hentOrdListe();
+    startSpill();  // Start spillet når ordlisten er ferdig lastet
+};
