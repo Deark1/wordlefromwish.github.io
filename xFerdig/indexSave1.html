@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Rutenett</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/style2.css'>
+    <script src='../javascript/java1.js' defer>  </script>
+
+</head>
+<body>
+    <header>
+        <h1 id="wish">Wordle from wish</h1>
+    </header>
+
+    <main>
+        <div id="grid"></div>
+        <p id="melding"></p>
+        <button id="playAgain" onclick="location.reload()">Play Again</button>
+    </main>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Keyboard</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="Keyboard">
+        
+        <div class="row">
+            <div class="key">q</div>
+            <div class="key">w</div>
+            <div class="key">e</div>
+            <div class="key">r</div>
+            <div class="key">t</div>
+            <div class="key">y</div>
+            <div class="key">u</div>
+            <div class="key">i</div>
+            <div class="key">o</div>
+            <div class="key">p</div>
+        </div>
+        <div class="row">
+            <div class="key">a</div>
+            <div class="key">s</div>
+            <div class="key">d</div>
+            <div class="key">f</div>
+            <div class="key">g</div>
+            <div class="key">h</div>
+            <div class="key">j</div>
+            <div class="key">k</div>
+            <div class="key">l</div>
+            
+        </div>
+        <div class="row SecondLast">
+            <div class="key">z</div>
+            <div class="key">x</div>
+            <div class="key">c</div>
+            <div class="key">v</div>
+            <div class="key">b</div>
+            <div class="key">n</div>
+            <div class="key">m</div>
+        </div>
+        <div class="space-row">
+            <div class="key space"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+    background: whitesmoke;
+    font-size: 1.5rem;
+}
+
+.Keyboard {
+    height: 50vh;
+    width: 70vw;
+    background: darkgray;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; 
+    margin-top: 0.25vh;
+    margin-bottom: 0.25vh;
+}
+
+.key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    min-width: 3rem; 
+    background: lightgray; 
+    border: 2px solid black;  
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.key:active {
+    background: white;
+}
+
+.key[capslock], .key.enter {
+    flex-grow: 1; 
+    text-align: center;
+}
+
+.space-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.space{
+    margin-top: 0.5vh;
+        width: 40%;
+        height: 2rem;
+        background: grey;
+    }
+
+button{
+    margin-bottom: 0.6vh;
+}
+</style>
