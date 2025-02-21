@@ -85,7 +85,7 @@ const sjekkOrd = (gjett) => {
 
 // Sjekk raden når et ord er fylt ut
 const sjekkRad = (index) => {
-    let start = index - 4;
+    let start = index - 4; // Startposisjon for raden
     let gjett = "";
 
     for (let i = start; i <= index; i++) {
@@ -94,27 +94,33 @@ const sjekkRad = (index) => {
 
     if (gjett.length !== 5) return;
 
-    let resultat = sjekkOrd(gjett);
+    let resultat = sjekkOrd(gjett); // Finner riktige og feilplasserte bokstaver
 
     for (let i = 0; i < 5; i++) {
         let rute = document.querySelector(`[data-index='${start + i}']`);
 
+        // Fjerner gamle fargeklasser
+        rute.classList.remove("correct", "misplaced", "wrong");
+
+        // Legger til riktig fargeklasse basert på resultatet
         if (resultat[i] === 'riktig') {
-            rute.style.backgroundColor = 'green';
+            rute.classList.add("correct");  
         } else if (resultat[i] === 'feilplassert') {
-            rute.style.backgroundColor = 'yellow';
+            rute.classList.add("misplaced"); 
         } else {
-            rute.style.backgroundColor = 'gray';
+            rute.classList.add("wrong");  
         }
     }
 
     antallforsok++;
 
+    // Sjekker om brukeren har vunnet eller tapt
     if (gjett === riktigord) {
         document.getElementById('melding').innerText = "🎉 Gratulerer! Du vant!";
     } else if (antallforsok >= maxforsok) {
         document.getElementById('melding').innerText = `😢 Du tapte! Ordet var: ${riktigord}`;
     } else {
+        // Setter fokus på første rute i neste rad
         let nesteStart = (antallforsok * 5);
         let nesteFokus = document.querySelector(`[data-index='${nesteStart}']`);
         if (nesteFokus) nesteFokus.focus();
