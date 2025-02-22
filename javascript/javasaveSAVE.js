@@ -37,10 +37,6 @@ document.addEventListener("keydown", (e) => {
     handleKeyPress(key);
 });
 
-document.querySelector("#backspace").addEventListener("click", ()=>{
-    handleKeyPress("BACKSPACE");
-});
-
 function handleKeyPress(key) {
     let ruter = document.querySelectorAll(".grid-item");
 
