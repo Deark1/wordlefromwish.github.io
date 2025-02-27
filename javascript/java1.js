@@ -34,7 +34,7 @@ document.querySelectorAll(".key").forEach(key => {
 
 document.addEventListener("keydown", (e) => {
     let key = e.key.toUpperCase();
-    handleKeyPress(key);
+    handleKeyPress(key); 
 });
 
 document.querySelector("#backspace").addEventListener("click", ()=>{
