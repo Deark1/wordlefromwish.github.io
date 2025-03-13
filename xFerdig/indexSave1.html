@@ -122,25 +122,39 @@ button{
     margin-bottom: 0.6vh;
 }
 @media (max-width: 768px) {
-        body {
-            font-size: 1rem; /* Even smaller text on mobile */
-        }
-
-        .Keyboard {
-            max-width: 95vw;
-            height: 60vh; 
-        }
-
-        .key {
-            min-width: 2rem; 
-            padding: 0.6rem; 
-        }
-
-        button {
-            font-size: 1rem; 
-            padding: 0.5rem;
-        }
+    body {
+        font-size: 1rem; 
     }
 
+    .Keyboard {
+        max-width: 95vw; /* Use nearly full width */
+        max-height: 50vh; /* Adjust keyboard height */
+        height: 100%;
+        width: 100%;
+    }
+
+    .key {
+        min-width: 2rem; /* Smaller keys */
+        padding: 0.3rem; /* Smaller padding */
+        font-size: 1rem; /* Smaller font size */
+    }
+
+    .row {
+        gap: 0.2rem; /* Reduce gap between keys */
+    }
+
+    .key#backspace {
+        min-width: 4rem; /* Adjust backspace key size */
+    }
+
+    .key.enter {
+        min-width: 4rem; /* Adjust Enter key size */
+    }
+
+    button {
+        font-size: 1rem; /* Adjust font size for the button */
+        padding: 0.5rem;
+    }
+}
 </style>
 

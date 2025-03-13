@@ -25,7 +25,7 @@ for (let i = 0; i < 30; i++) {
 }
 
 // Add event listener for keyboard clicks
-document.querySelectorAll(".key").forEach(key => {
+document.querySelectorAll(".key").forEach(key => { 
     key.addEventListener("click", () => {
         let keyText = key.innerText;
         handleKeyPress(keyText);
@@ -86,6 +86,8 @@ function sjekkOrd() {
         if (gjett[i] === riktigOrd[i]) {
             bokstav.classList.add("correct");
             updateKeyboard(gjett[i], "correct");
+        
+        
         } else if (riktigOrd.includes(gjett[i])) {
             bokstav.classList.add("misplaced");
             updateKeyboard(gjett[i], "misplaced");
@@ -118,7 +120,6 @@ function updateKeyboard(letter, status) {
         }
     });
 }
-
 async function startSpill() {
     document.getElementById("melding").innerText = "";
     document.querySelectorAll(".grid-item").forEach(item => {
@@ -129,6 +130,6 @@ async function startSpill() {
     gjeldendeKol = 0;
     await hentOrdListe();
     await hentOrd();
+    
 }
-
 startSpill();
